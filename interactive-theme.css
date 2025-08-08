@@ -1,0 +1,187 @@
+/* Interactive UX enhancements (load after your existing theme) */
+
+:root {
+  --color-primary: #302CE1;
+  --color-primary-600: #5c59e7;
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --ring: 3px;
+  --ring-color: rgba(48, 44, 225, 0.35);
+  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.10);
+  --elev-2: 0 6px 16px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth interactive transitions */
+a, .btn, .navbar a, .list-group-item, .panel, .card, .pagination > li > a, .form-control {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease,
+              box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Clear, accessible focus styles */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.btn:focus-visible,
+.nav > li > a:focus-visible,
+.dropdown-menu > li > a:focus-visible,
+.pagination > li > a:focus-visible,
+.breadcrumb > li > a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  box-shadow: 0 0 0 var(--ring) var(--ring-color);
+}
+
+/* Buttons */
+.btn { border-radius: 6px; }
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  transform: translateY(-1px);
+  box-shadow: var(--elev-1);
+}
+.btn-primary:active,
+.btn-primary.active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.btn-default { background-color: #fff; }
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #f6f6f8;
+  transform: translateY(-1px);
+  box-shadow: var(--elev-1);
+}
+
+/* Links */
+a { text-decoration-thickness: 0.08em; text-underline-offset: 2px; }
+a:hover, a:focus { text-underline-offset: 3px; }
+
+/* Navbar & dropdowns */
+.navbar-inverse .navbar-nav > li > a { border-radius: 4px; }
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.navbar .dropdown-menu {
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: var(--elev-2);
+}
+.navbar .dropdown-menu > li > a {
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+.navbar .dropdown-menu > li > a:hover,
+.navbar .dropdown-menu > li > a:focus {
+  background-color: #f2f2f2;
+  color: var(--color-primary);
+}
+
+/* Panels, cards, and lists */
+.panel, .card { border-radius: 8px; }
+.panel:hover, .card:hover {
+  box-shadow: var(--elev-2);
+  transform: translateY(-2px);
+}
+.list-group-item { border-radius: 6px; }
+.list-group-item:hover,
+.list-group-item:focus { background-color: #fafafa; }
+
+/* Forms */
+.form-control { border-radius: 6px; }
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 var(--ring) var(--ring-color);
+}
+
+/* Pagination */
+.pagination > li > a, .pagination > li > span { border-radius: 50%; }
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+}
+.pagination > li > a:hover { background: #f6f6f8; }
+
+/* Breadcrumb */
+.breadcrumb > li > a {
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.breadcrumb > li > a:hover,
+.breadcrumb > li > a:focus {
+  background-color: #f6f6f8;
+}
+
+/* Skip to content */
+.skip-to-content a { transition: top 0.2s ease; }
+.skip-to-content a:focus { box-shadow: 0 0 0 var(--ring) var(--ring-color); }
+
+/* Utility: hover raise on large screens only */
+@media (hover: hover) and (pointer: fine) {
+  .hover-raise:hover { transform: translateY(-2px); box-shadow: var(--elev-2); }
+}
+
+/* High-contrast adjustments */
+@media screen and (-ms-high-contrast: active) {
+  :focus-visible { outline: 1px solid; box-shadow: none; }
+  .btn:focus-visible, .nav > li > a:focus-visible { outline: 1px solid; }
+}
+
+/* Custom theme class touch-ups */
+.btn-info-home {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease,
+              box-shadow 0.2s ease, transform 0.2s ease;
+}
+.btn-info-home:hover,
+.btn-info-home:focus {
+  transform: translateY(-1px);
+  box-shadow: var(--elev-1);
+}
+.btn-info-home:focus-visible {
+  box-shadow: 0 0 0 var(--ring) var(--ring-color);
+}
+
+.breadcrumb > .active { font-weight: 700; }
+
+/* Improve .cards-container interaction */
+.cards-container .panel,
+.cards-container .card {
+  will-change: transform, box-shadow;
+}
+.cards-container .panel:hover,
+.cards-container .card:hover {
+  transform: translateY(-3px);
+}
